@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List :)</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</head>
+
+
+<div class="container mt-4">
+    <!-- Content here -->
+
+    <body>
+
+    <div class="alert alert-success" role="alert">
+        <h2>Todo list :)</h2>
+    </div>
+
+    <form action="/addTodo/" method="post">{% csrf_token %}
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a class="navbar-brand">Enter Your Tasks to be done.</a>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="text" placeholder="Type it here...." name="content"
+                       aria-label="Search">
+                <div class="container mt-4">
+                    <button type="submit" class="btn btn-success my-2 my-sm-0" type="submit">ADD</button>
+            </form>
+        </nav>
+    </form>
+    <ul>
+        {% for todo_item in all_items %}
+            <li>{{ todo_item.content }}
+                <form action="/deletetodo/{{ todo_item.id }}/"
+                      style="display: inline"
+                      method="post">{% csrf_token %}
+
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    </body>
+</html>
+
