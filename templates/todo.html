@@ -34,18 +34,18 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Type it here...." name="content"
                        aria-label="Search">
                 <div class="container mt-4">
-                    <button type="submit" class="btn btn-success my-2 my-sm-0" type="submit">ADD</button>
+                    <button type="submit" class="btn btn-success my-2 my-sm-0" type="submit">ADD ITEMS TO THE LIST</button>
             </form>
         </nav>
     </form>
     <ul>
         {% for todo_item in all_items %}
-            <li>{{ todo_item.content }}
+            <li class="list-group-item list-group-item-warning">{{ todo_item.content }}
                 <form action="/deletetodo/{{ todo_item.id }}/"
                       style="display: inline"
                       method="post">{% csrf_token %}
 
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button align="right" type="submit" class="btn btn-danger">Delete</button>
                 </form>
             </li>
         {% endfor %}
