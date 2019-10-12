@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Todo List :)</title>
@@ -16,25 +15,22 @@
             integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
             crossorigin="anonymous"></script>
 </head>
-
-
 <div class="container mt-4">
     <!-- Content here -->
-
     <body>
-
     <div class="alert alert-success" role="alert">
         <h2>Todo list :)</h2>
     </div>
 
     <form action="/addTodo/" method="post">{% csrf_token %}
-        <nav class="navbar navbar-light bg-light justify-content-between">
+        <nav class="navbar navbar-light bg-primary justify-content-between">
             <a class="navbar-brand">Enter Your Tasks to be done.</a>
             <form class="form-inline">
                 <input class="form-control mr-sm-2" type="text" placeholder="Type it here...." name="content"
                        aria-label="Search">
                 <div class="container mt-4">
-                    <button type="submit" class="btn btn-success my-2 my-sm-0" type="submit">ADD ITEMS TO THE LIST</button>
+                    <button type="submit" class="btn btn-success my-2 my-sm-0" type="submit">ADD ITEMS TO THE LIST
+                    </button>
             </form>
         </nav>
     </form>
@@ -50,7 +46,6 @@
             </li>
         {% endfor %}
     </ul>
-
     </body>
 </html>
 
